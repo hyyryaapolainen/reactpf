@@ -1,0 +1,242 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 8vh;
+  background-color: gray;
+}
+
+.logo {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+
+.nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 50%;
+}
+
+.nav-links a {
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 4vh;
+  background-color: gray;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.footer-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 50%;
+}
+
+.footer-links a {
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.footer-links li {
+  list-style: none;
+}
+
+.center {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.center.main {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: lightblue;
+}
+
+.text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.text img {
+  height: 100%;
+  width: 100%;
+}
+
+.cv.item:nth-child(2) {
+  margin-top: 6em;
+}
+
+.cv {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.cv .title {
+  position: absolute;
+  top: 25px;
+  text-align: center;
+  left: 10%;
+  right: 10%;
+}
+
+.cv .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cv .item:last-of-type {
+  margin-bottom: 8vh;
+}
+
+.cv .icon {
+  margin: 0 1.5em;
+}
+
+.small-text {
+  width: 15%;
+  text-align: center;
+  font-style: italic;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.profile-picture {
+  height: 100%;
+  width: 300px;
+  position: relative;
+}
+
+.profile-picture img {
+  position: absolute;
+  bottom: 0;
+}
+
+.gallery-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 10em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.gallery-container .category:last-of-type {
+  margin-bottom: 8vh;
+}
+
+.item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.category-title {
+  text-align: center;
+}
+
+.category-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: center;
+}
+
+.categoryList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.categoryList .categoryItem {
+  list-style: none;
+  padding: 5em 0;
+}
+/*# sourceMappingURL=styles.css.map */
