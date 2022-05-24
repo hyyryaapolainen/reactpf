@@ -1,7 +1,60 @@
-import React from 'react'
-import '../styles/styles.css';
+import React, { useState, useEffect} from "react";
+import { motion, AnimateSharedLayout } from "framer-motion";
+import '../styles/styles.css'
 import {Link} from 'react-router-dom'
-import { useSpring, animated as a } from 'react-spring'
+import Flippy, { FrontSide, BackSide } from 'react-flippy'
+import projectData from '../projectData'
+  
+const headerlinks = [
+  {
+    color: "#ff0055",
+    location: '/',
+    name: 'Home',
+    id: 'linktohome',
+    icon: "fas fa-home"
+  },
+  {
+    color: "#0099ff",
+    location: '/Projects',
+    name: 'Projects',
+    id: 'linktoprojects',
+    icon: "far fa-check-square"
+  },
+  {
+    color: '#000000',
+    location: '/About',
+    name: 'About',
+    id: 'linktoabout',
+    icon: "far fa-address-card"
+  },
+  {
+    color: "#ffaa00",
+    location: '/Sorting',
+    name: 'Sorting',
+    id: 'linktosorting',
+    icon: "fas fa-certificate"
+  },
+]
+
+function Card(props) {
+return (
+  <Flippy
+    flipOnHover={false} 
+    flipOnClick={true} 
+    flipDirection="horizontal"
+  >
+    <FrontSide>
+    <div className="card">
+    {props.front}
+    </div>
+    </FrontSide>
+    <BackSide>
+     <div className="card">
+      {props.back}
+     </div>
+    </BackSide>
+  </Flippy>
+)}
 
 export function Footer() {
     return (
@@ -9,44 +62,23 @@ export function Footer() {
     <div className="footer">
         <ul className="footer-links">
             <li>
-                <i className ="fa fa-envelope"></i>
-                <a href="mailto:a.hyyrylainen79@gmail.com">Email</a>
+                <a style={{color: 'white'}} href="mailto:a.hyyrylainen79@gmail.com"><i className ="fa fa-envelope"></i></a>
             </li>
             <li>
-                <i className="fab fa-github-square"></i>
-                <a href="https://github.com/hyyryaapolainen/">Github</a>
+                <a style={{color: 'white'}} href="https://github.com/hyyryaapolainen/"><i className="fab fa-github-square"></i></a>
             </li>
             <li>
-                <i className="fab fa-linkedin"></i>
-                <a href="https://www.linkedin.com/in/aapo-hyyryl%C3%A4inen-72baa7158/">Linkedin</a>
+                <a style={{color: 'white'}}href="https://www.linkedin.com/in/aapo-hyyryl%C3%A4inen-72baa7158/"><i className="fab fa-linkedin"></i></a>
             </li>
         </ul>
     </div>
     </footer>
     )
 }
-export function Header() {
-    return (
-    <nav>
-        <div className="logobox">
-            <h4>LOGO HERE</h4>
-        </div>
-        <ul className="nav-links">
-            <Link to='/'>
-                <li><p>Home</p></li>
-            </Link>
-            <Link to='/Projects'>
-                <li><p>Projects</p></li>
-            </Link>
-            <Link to='/About'>
-                <li><p>About</p></li>
-            </Link>
-        </ul>
-    </nav>
-    )
-}
+
 export function Container(props) {
     return <div className={"container "+ props.type}>
+      <div className="background-picture"><img src={props.img} alt=""></img></div>
       {props.children}
     </div>;
   }
@@ -55,17 +87,155 @@ export function Text(props) {
     {props.children}
     </div>
   } 
+  
 export function GalleryItem( {pr} ) {
     return (
-        <div className="gallery item">
+        <React.Fragment>
+        <div className="gallery-item">
         <h4 className="gallery-title">{pr.name}</h4>
-        <h2>{pr.description}</h2>
-        <img src={pr.pic}></img>
+        <Card front={<img src={pr.pic} alt={pr.name}></img>} back={<h2>{pr.description}</h2>}></Card>
         </div>
+        </React.Fragment>
     )
 }
+export function GalleryItem2( {pr} ) {
+  const [isOpen, setIsOpen] = useState(false)
+  const variants = {
+    closed: { opacity: 1, width: '400px', height: '200px', fontSize: '16px'},
+    open: { opacity: 0, width: '0px', height: '0px', fontSize: '0px'},
+  }
+  return (
+      <React.Fragment>
+      <motion.div style={{}}className="gallery-item"
+      animate= {isOpen ? "open" : "closed"}
+      drag={true}
+      dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
+      variants ={variants}>
+      <h4 onClick={() => setIsOpen(true)} className="gallery-title">{pr.name}</h4>
+      </motion.div>
+      <ProjectDisplay onClick={()=> setIsOpen(false)} isOpen={isOpen} src={pr.pic} description = {pr.description}></ProjectDisplay>
+      </React.Fragment>
+  )
+}
+function ProjectDisplay (props) {
+  const variants = {
+    open: { opacity: 1,fontSize: '16px', scale: 1.2},
+    closed: { opacity: 0, width: '0px', height: '0px', fontSize: '0px'},
+  }
+  return (
+    <motion.div
+    onClick={props.onClick}
+    style={{margin: 'auto', opacity: 0, width: '0px', height: '0px', fontSize: '0px'}}
+    animate= {props.isOpen ? "open" : "closed"}
+    variants = {variants}
+    >
+    <motion.div animate= {props.isOpen ? "open" : "closed"}
+    variants = {variants}><p>{props.description}</p></motion.div>
+    </motion.div>
+  )
+  }
+function CategoryGallery ( {pr } ) {
   
+  return(
+
+    <div>{projectData.map(project => { if(project.category === pr.category) {
+      return (<GalleryItem key={project.id} pr={project}></GalleryItem>)
+  } else{return}})}</div>
+  )
+}
+export function CvItem (props) {
+  return (
+    <React.Fragment>
+        <div className="cv item">
+          <div><i className={props.icon}></i></div>
+        <div>
+          <h3>{props.job}</h3>
+          <div className="cv description"><p>{props.description}</p>
+          <p>{props.duties}</p></div>
+          </div>
+        </div>
+    </React.Fragment>
+  )
+}
 
   export default function Default(props) {
     return <div></div>
   }
+
+  export function Header() {
+    const [selected, setSelected] = useState();
+    useEffect(() => {
+      if (window.location.pathname === '/')
+      {
+        setSelected(headerlinks[0].color)
+      }
+      else if (window.location.pathname === '/Projects')
+      {
+        setSelected(headerlinks[1].color)
+      }
+      else if (window.location.pathname === '/About')
+      {
+        setSelected(headerlinks[2].color)
+      }
+      else if (window.location.pathname === '/Sorting')
+      {
+        setSelected(headerlinks[3].color)
+      }
+      return () => {}
+    }, [selected])
+    return (
+        <motion.div>
+        <AnimateSharedLayout>
+        <div className="header">
+        <ul className="nav-links">
+            {headerlinks.map(link => (
+            <Item
+                key={link.id}
+                link={link}
+                isSelected={selected === link.color}
+                onClick={() => setSelected(link.color)}
+            ></Item>
+            ))}
+        </ul>
+        </div>
+        </AnimateSharedLayout>
+        </motion.div>
+    )
+}
+function Item({ link, isSelected, onClick }) {
+
+    return (
+      <Link onClick={onClick} to={link.location}>
+      <li className="item-circle" style={{ backgroundColor: link.color }}>
+        {isSelected && (
+          <motion.div
+            layoutId="outline"
+            className="outline"
+            initial={false}
+            animate={{ borderColor: link.color}}
+            transition={springHeader}
+          >
+          </motion.div>
+        )}
+        <i className={"circle-icon "+link.icon}></i>
+        <p style ={isSelected ? {opacity: 1, transform: 'translate(-50%, 160%)'} :{}}className="header-text">{link.name}</p>
+      </li>
+      </Link>
+    );
+  }  
+  const springHeader = {
+    type: "spring",
+    stiffness: 200,
+    damping: 20}
+
+/*
+<Link to='/Projects'>
+  <li><p>Projects</p></li>
+</Link>
+<Link to='/About'>
+  <li><p>About</p></li>
+</Link>
+<Link to='/Sorting'>
+  <li><p>Sorting</p></li>
+</Link>
+*/

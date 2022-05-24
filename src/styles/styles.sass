@@ -1,46 +1,33 @@
-$mobile: 768px
-
+$--main-bg-color: white
+$--side-bg-color: black
+$--accent-color: black
 
 *
   margin: 0px
   padding: 0px
   box-sizing: border-box    
   font-family: 'Open Sans', sans-serif
-nav
-  display: flex
-  justify-content: space-around
-  align-items: center
-  min-height: 8vh
-  background-color: gray
-.logo
-  color: white
-  text-transform: uppercase
-  letter-spacing: 5px
-  font-size: 20px
+.header
+  margin: 0.5em 0 2em 0
 .nav-links 
   display: flex
   justify-content: space-around
-  width: 50%
+  margin: auto
+  width: 80%
+  padding: 0
   a
-    text-decoration: none
-    letter-spacing: 3px
-    font-weight: bold
-    font-size: 14px
-  li
     list-style: none
+    text-decoration: none
 .footer
   display: flex
   justify-content: space-around
   align-items: center
   min-height: 4vh
-  background-color: gray
+  background-color: $--accent-color
   position: fixed
   bottom: 0
   left: 0
   right: 0
-footer
-  margin-top: auto
-  
 .footer-links
   display: flex
   justify-content: space-around
@@ -49,7 +36,7 @@ footer
     text-decoration: none
     letter-spacing: 3px
     font-weight: bold
-    font-size: 14px
+    font-size: 30px
   li
     list-style: none
 .center
@@ -57,8 +44,10 @@ footer
   display: flex
   height: 100%
 .center.main
-    align-items: center
-    background: lightblue
+  align-items: center
+  height: 100%
+  width: 100%
+  z-index: -10
 .text
   display: flex
   flex-direction: column
@@ -69,8 +58,13 @@ footer
     width: 100%
 .cv.item:nth-child(2)
     margin-top: 6em
+.container.cv
+  background: $--accent-color
 .cv
   justify-content: space-around
+  color: $--main-bg-color
+  .text
+    width: 90%
   .title
     position: absolute
     top: 25px
@@ -79,12 +73,29 @@ footer
     right: 10%
   .item
     display: flex
+    width: 80%
+    margin: 1em auto
     align-items: center
+    text-align: center
+  .description
+    width: 76%
+    margin: auto
   .item:last-of-type
     margin-bottom: 8vh
   .icon
     margin: 0 1.5em
-    
+.flippy-container
+  width: 50%
+  margin: auto
+  cursor: pointer
+.card
+  height: 100%
+  width: 100%
+  margin: auto
+  text-align: center
+  display: flex
+  flex-direction: column
+  justify-content: center
 .small-text
   width: 15%
   text-align: center
@@ -96,6 +107,18 @@ h1
 h3
   font-size: 20px
 h2
+  font-size: 30px
+.contact-button
+  font-weight: bold
+  padding: 16px 32px
+  text-align: center
+  text-decoration: none
+  display: inline-block
+  font-size: 16px
+  width: 80%
+  cursor: pointer
+  color: $--side-bg-color
+  background-color: $--main-bg-color
 .profile-picture
   height: 100%
   width: 300px
@@ -105,25 +128,121 @@ h2
     bottom: 0
 .gallery-container
   display: flex
-  justify-content: space-around
-  margin: 0 10em
   flex-direction: column
-  .category:last-of-type
+  
+.category-items
+  text-align: center
+  flex-direction: row
+  display: flex
+.gallery-item
+  margin: 0 auto 2em auto
+  width: 80%
+.category:last-of-type
     margin-bottom: 8vh
+.category-title
+  margin: 2em 0
+  font-size: 40px
+  text-align: center
 .item
   display: flex
   flex-direction: column
-.category-title
-  text-align: center
-.category-items
-  display: flex
-  flex-direction: row
-  text-align: center
-.gallery.item
-
 .categoryList
   display: flex
   justify-content: space-around
   .categoryItem
     list-style: none
-    padding: 5em 0
+    margin: 5em 0 0 0
+    width: 15%
+    position: relative
+    justify-content: center
+    display: flex
+    input
+      opacity: 0
+      position: absolute
+      height: 100%
+      width: 30%
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      transition: width 1.25s
+      cursor: pointer
+      &:checked ~ .checkmark
+        background-color: green
+        width: 80%
+      &:checked
+        width: 80%
+    .checkmark
+      position: absolute
+      display: block
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      height: 100%
+      width: 30%
+      z-index: -1
+      background-color: red
+      transition: width 1.25s
+label
+  text-align: center
+  display: block
+  color: white
+line
+  stroke: black
+  fill: yellow
+  stroke-width: 5px
+ellipse
+  stroke-width: 5px
+  fill: yellow
+  stroke: black
+
+@keyframes fade-in
+  from
+    opacity: 0
+    transform: translateX(250px)
+  to
+    opacity: 1
+    transform: translateX(0px)
+
+.fade-in
+  animation-name: fade-in
+  animation-duration: 2s
+.item-circle
+  display: block
+  width: 60px
+  height: 60px
+  border-radius: 50%
+  margin: 20px
+  position: relative
+  cursor: pointer
+  flex-shrink: 0
+  &:hover
+    .header-text
+      opacity: 1
+      transition: all 0.5s
+      transform: translate(-50%, 160%)
+.circle-icon
+  position: absolute
+  top: 50%
+  left: 50%
+  font-size: 25px
+  transform: translate(-50%, -50%)
+  color: white
+.outline 
+  position: absolute
+  top: -20px
+  left: -20px
+  right: -20px
+  bottom: -20px
+  border: 8px solid white
+  border-radius: 50%
+.header-text
+  position: absolute
+  opacity: 0
+  top: 50%
+  left: 50%
+  font-size: 25px
+  transform: translate(-50%, 150%)
+  color: black
+  transition: all 0.8s
+
+
