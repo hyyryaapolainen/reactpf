@@ -98,25 +98,7 @@ export function GalleryItem( {pr} ) {
         </React.Fragment>
     )
 }
-export function GalleryItem2( {pr} ) {
-  const [isOpen, setIsOpen] = useState(false)
-  const variants = {
-    closed: { opacity: 1, width: '400px', height: '200px', fontSize: '16px'},
-    open: { opacity: 0, width: '0px', height: '0px', fontSize: '0px'},
-  }
-  return (
-      <React.Fragment>
-      <motion.div style={{}}className="gallery-item"
-      animate= {isOpen ? "open" : "closed"}
-      drag={true}
-      dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
-      variants ={variants}>
-      <h4 onClick={() => setIsOpen(true)} className="gallery-title">{pr.name}</h4>
-      </motion.div>
-      <ProjectDisplay onClick={()=> setIsOpen(false)} isOpen={isOpen} src={pr.pic} description = {pr.description}></ProjectDisplay>
-      </React.Fragment>
-  )
-}
+
 function ProjectDisplay (props) {
   const variants = {
     open: { opacity: 1,fontSize: '16px', scale: 1.2},

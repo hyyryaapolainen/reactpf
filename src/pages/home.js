@@ -32,14 +32,20 @@ function Home() {
                     <h2>Work Experience</h2>
                 </div>
                 <CvItem 
+                icon="fas fa-flag"
+                job="DataGroup Sata IT - 2021" 
+                description="Internship as an ICT support and PowerApps Developer"
+                duties="">
+                </CvItem>
+                <CvItem 
                 icon="fas fa-bullhorn"
                 job="Presenter at Asuntomessut - Housing Fair Finland - Kouvola 2019" 
                 description="Housing Fair is an annual event for everyone interested in all things related to housing."
-                duties="Duties included lots and lots of customer service">
+                duties="Duties included lots of customer service and presenting">
                 </CvItem> 
                 <CvItem 
                 icon="fas fa-calculator"
-                job="Accounting Assistant - Monelle Oy - 2018" 
+                job="Accounting Assistant - Monelle Oy - 2018, 2020-2021" 
                 description="Monelle Oy is a small business that provides management services for different varieties of companies around Kouvola "
                 duties="Duties included handling payments, billing and mail as well as data entry">
                 </CvItem>                
@@ -47,12 +53,6 @@ function Home() {
                 icon="fas fa-hammer"
                 job="Construction worker at Elementit-E Oy - 2017" 
                 description="I worked at a prefabricated element factory where I was tasked with assembling flooring and insulation for wooden prefabs"
-                duties="">
-                </CvItem>
-                <CvItem 
-                icon="fas fa-flag"
-                job="Finnish Mandatory Army Service - 2016-2017" 
-                description="I completed my mandatory army service after graduating from upper secondary school"
                 duties="">
                 </CvItem>
             </Text>
@@ -72,8 +72,8 @@ function Home() {
               <CvItem 
                 icon="fas fa-graduation-cap"
                 job="Kouvolan Yhteiskoulun lukio - Upper Secondary - 2013-2016" 
-                description="Currently studying Business IT, previously International Business"
-                duties="">
+                description="Finnish upper secondary school and matriculation examination"
+                duties="Final exams in Physics, Chemistry, Biology, Advanced Mathematics, English and Finnish ">
               </CvItem>
               <CvItem 
                 icon="fas fa-school"

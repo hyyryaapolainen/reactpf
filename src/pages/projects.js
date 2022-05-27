@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import projectData from '../projectData';
-import {GalleryItem, GalleryItem2} from '../components/layout.js'
+import {GalleryItem} from '../components/layout.js'
 //import { motion } from "framer-motion"
 
 
@@ -57,20 +57,6 @@ function Projects() {
                     <span className="input-text"> Pixel Art </span>
                 </label>
             </li>
-            <li className="categoryItem">
-                <label className="checkbox">
-                    <input 
-                    type="radio" 
-                    name="category" 
-                    value="category4"
-                    checked={option === "category4"}
-                    onChange={handleOptionChange}
-                    className="categoryselect"
-                    />
-                    <span className="checkmark"></span>
-                    <span className="input-text"> All </span>
-                </label>
-            </li>
         </ul>
         </div>
         
@@ -98,14 +84,6 @@ function Projects() {
             return (<GalleryItem key={project.id} pr={project}></GalleryItem>)
         } else{return}})}</div></div>
          : ``}
-         {option === 'category4' ? <div className="category">
-             <h4 className="category-title">All projects</h4>
-            <div className="category-items">
-             {projectData.map(project => {
-             return (<GalleryItem2 key={project.id} pr={project}></GalleryItem2>)
-            })}</div></div>
-        : ``}
-
         </React.Suspense>
     )
 }
