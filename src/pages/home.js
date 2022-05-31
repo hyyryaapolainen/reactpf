@@ -41,18 +41,18 @@ function Home() {
                 icon="fas fa-bullhorn"
                 job="Presenter at Asuntomessut - Housing Fair Finland - Kouvola 2019" 
                 description="Housing Fair is an annual event for everyone interested in all things related to housing."
-                duties="Duties included lots of customer service and presenting">
+                duties="I worked as a presenter at one of the locations">
                 </CvItem> 
                 <CvItem 
                 icon="fas fa-calculator"
-                job="Accounting Assistant - Monelle Oy - 2018, 2020-2021" 
-                description="Monelle Oy is a small business that provides management services for different varieties of companies around Kouvola "
-                duties="Duties included handling payments, billing and mail as well as data entry">
+                job="Accounting Assistant - Monelle Oy - 2018, 2020-2021, 2022" 
+                description="Duties include handling payments, billing and mail as well as data entry"
+                duties="">
                 </CvItem>                
                 <CvItem 
                 icon="fas fa-hammer"
                 job="Construction worker at Elementit-E Oy - 2017" 
-                description="I worked at a prefabricated element factory where I was tasked with assembling flooring and insulation for wooden prefabs"
+                description=" I was tasked with assembling flooring and insulation for wooden prefabs"
                 duties="">
                 </CvItem>
             </Text>

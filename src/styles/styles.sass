@@ -39,10 +39,24 @@ $--accent-color: black
     font-size: 30px
   li
     list-style: none
+.item-subtitle
 .center
   justify-content: space-around
   display: flex
   height: 100%
+.chapter
+  margin-top: 2em
+  display: flex
+  flex-direction: row
+  width: 80%
+  margin: auto
+
+.paragraph
+  width: 50%
+  height: 20%
+  margin: 1em
+  padding-top: 1em
+  padding-bottom: 2em
 .center.main
   align-items: center
   height: 100%
@@ -129,14 +143,17 @@ h2
 .gallery-container
   display: flex
   flex-direction: column
-  
+.gallery-title  
+  margin-bottom: 1em
 .category-items
   text-align: center
   flex-direction: row
+  flex-wrap: wrap
   display: flex
 .gallery-item
   margin: 0 auto 2em auto
-  width: 80%
+  padding-bottom: 2em
+  position: relative
 .category:last-of-type
     margin-bottom: 8vh
 .category-title
@@ -152,10 +169,13 @@ h2
   .categoryItem
     list-style: none
     margin: 5em 0 0 0
-    width: 15%
+    width: 30%
+
     position: relative
     justify-content: center
     display: flex
+    .checkbox
+      font-size: 1em
     input
       opacity: 0
       position: absolute

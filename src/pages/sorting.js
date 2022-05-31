@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 
+//Sorting algo tests, unfinished
+
 function getRandomNumber(min, max){
     return Math.floor(Math.random() * (max-min+1)) + min;
 }

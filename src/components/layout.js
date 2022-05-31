@@ -26,7 +26,8 @@ const headerlinks = [
     name: 'About',
     id: 'linktoabout',
     icon: "far fa-address-card"
-  },
+  }
+  /*,
   {
     color: "#ffaa00",
     location: '/Sorting',
@@ -34,6 +35,7 @@ const headerlinks = [
     id: 'linktosorting',
     icon: "fas fa-certificate"
   },
+  */
 ]
 
 function Card(props) {
@@ -89,16 +91,42 @@ export function Text(props) {
   } 
   
 export function GalleryItem( {pr} ) {
+  const [isOpen, setIsOpen] = useState(false)
+  const variants = {
+    open: { opacity: 0, scale: 1},
+    closed: { opacity: 1},
+  }
     return (
         <React.Fragment>
-        <div className="gallery-item">
-        <h4 className="gallery-title">{pr.name}</h4>
-        <Card front={<img src={pr.pic} alt={pr.name}></img>} back={<h2>{pr.description}</h2>}></Card>
+        <div className="gallery-item" style={{height: pr.picDim[0], width: pr.picDim[1]}}>
+        <h4 className="gallery-title" >{pr.name}</h4>
+        <motion.div
+        animate={isOpen ? "open" : "closed"}
+        variants = {variants} onClick ={() => setIsOpen(isOpen => !isOpen)}
+        >
+        <img src={pr.pic} style={{height: pr.picDim[0]-20, width: pr.picDim[1]-20}} />
+        </motion.div>
+        <motion.div style=
+        {{position: "absolute", left: "0",
+        opacity: "0",
+        right: "0",
+        marginLeft: "auto",
+        marginRight: "auto", top: "50%", width: "80%",
+        boxShadow: "0px 5px", border: "1px solid black"}}
+        animate={isOpen ? "closed" : "open"}
+        variants = {variants}
+        ><div className="item-subtitle" style={{textAlign: "center", marginBottom: "2em"}}>{pr.description}</div>
+        <div className="item-subtitle" style={{textAlign: "center"}}>{pr.subtitle}</div>
+    
+        </motion.div>
         </div>
         </React.Fragment>
     )
 }
-
+/*/    <div style={{height: pr.picDim[0], width: pr.picDim[1]}}>
+<Card front={<img src={pr.pic} alt={pr.name}></img>} back={<h2>{pr.description}</h2>}></Card>
+</div>
+*/
 function ProjectDisplay (props) {
   const variants = {
     open: { opacity: 1,fontSize: '16px', scale: 1.2},
@@ -115,7 +143,7 @@ function ProjectDisplay (props) {
     variants = {variants}><p>{props.description}</p></motion.div>
     </motion.div>
   )
-  }
+}
 function CategoryGallery ( {pr } ) {
   
   return(
