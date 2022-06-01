@@ -8,7 +8,7 @@ import projectData from '../projectData'
 const headerlinks = [
   {
     color: "#ff0055",
-    location: '/',
+    location: '/reactpf',
     name: 'Home',
     id: 'linktohome',
     icon: "fas fa-home"
@@ -19,15 +19,14 @@ const headerlinks = [
     name: 'Projects',
     id: 'linktoprojects',
     icon: "far fa-check-square"
-  },
+  } /*,
   {
     color: '#000000',
     location: '/About',
     name: 'About',
     id: 'linktoabout',
     icon: "far fa-address-card"
-  }
-  /*,
+  },
   {
     color: "#ffaa00",
     location: '/Sorting',
@@ -98,27 +97,32 @@ export function GalleryItem( {pr} ) {
   }
     return (
         <React.Fragment>
-        <div className="gallery-item" style={{height: pr.picDim[0], width: pr.picDim[1]}}>
+        <div className="gallery-item" style={{height: "40%", width: "40%"}}>
         <h4 className="gallery-title" >{pr.name}</h4>
-        <motion.div
+        <div onClick ={() => setIsOpen(isOpen => !isOpen)} style={{borderRadius: '25px', border: '1px solid',height: pr.picDim[0], width: pr.picDim[1]}}>
+        <motion.div  style={{borderRadius: '25px', border: '1px solid', height: "100%", width: "100%"}} 
         animate={isOpen ? "open" : "closed"}
-        variants = {variants} onClick ={() => setIsOpen(isOpen => !isOpen)}
+        variants = {variants}
         >
-        <img src={pr.pic} style={{height: pr.picDim[0]-20, width: pr.picDim[1]-20}} />
+        <img src={pr.pic}  style={{borderRadius: '25px', height: "100%", width: "100%"}} />
         </motion.div>
         <motion.div style=
-        {{position: "absolute", left: "0",
+        {{position: "absolute",
         opacity: "0",
+        left: "0",top: "30%",
         right: "0",
-        marginLeft: "auto",
-        marginRight: "auto", top: "50%", width: "80%",
-        boxShadow: "0px 5px", border: "1px solid black"}}
+        margin: "auto", height: pr.picDim[0], width: pr.picDim[1]-30}}
         animate={isOpen ? "closed" : "open"}
-        variants = {variants}
-        ><div className="item-subtitle" style={{textAlign: "center", marginBottom: "2em"}}>{pr.description}</div>
+        variants = {variants}><div className="item-subtitle" style={{textAlign: "center", marginBottom: "2em"}}>{pr.description}</div>
         <div className="item-subtitle" style={{textAlign: "center"}}>{pr.subtitle}</div>
-    
+        <br></br>
+        {isOpen &&
+        <div className="item-subtitle" style={{fontSize: "70%"}}>
+          <a style={{zIndex: "1"}} href={pr.link}>{pr.link}</a>
+        </div>
+        }
         </motion.div>
+        </div>
         </div>
         </React.Fragment>
     )
@@ -175,7 +179,7 @@ export function CvItem (props) {
   export function Header() {
     const [selected, setSelected] = useState();
     useEffect(() => {
-      if (window.location.pathname === '/')
+      if (window.location.pathname === '/reactpf')
       {
         setSelected(headerlinks[0].color)
       }

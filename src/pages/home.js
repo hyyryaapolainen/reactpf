@@ -1,28 +1,45 @@
 import React, { useEffect, useRef} from "react";
 import {Container, Text, CvItem } from '../components/layout'
-import profile from '../images/testing.png'
+import profile from '../images/outdoor (25) edited.JPG'
 
 function Home() {
     const componentContainer = useRef(null)
-
-    useEffect(() => {
-    console.log("home")
-    return function cleanup()
-     {
-        console.log("home unmounted!") 
-     }
-    })
     return (
       <div style={{overflow: 'hidden'}}>
         <div ref={componentContainer} className="component-container">
           <div style={{height: 750, overflow: 'hidden'}} className="center main fade-in">
-            <Text type="about">
-            <h3>I'm Aapo and</h3>
-            <h1>I make IT work</h1>
-            <button className="contact-button">Contact!</button>
-            </Text>
+          <div className="center" style={{
+             textAlign: 'center', height: '100%', width: '50%'}}>
+                 <div className="chapter">
+                    <div className="paragraph">
+                    <h2>About me</h2>
+                    <br></br>
+                    <p>I am a 4th year student at JAMK University of Applied Sciences. After studying International Business at JAMK, 
+                        I made a leap of faith and decided to broaden my field of expertise by transferring over to Business IT.
+                    </p>
+                    </div>
+                    <div className="paragraph">
+                    <p> I am a soon to be Business IT graduate with excellent customer service skills, an analytical mind and an unquenchable thirst for knowledge. </p>
+                    </div>
+                    <div className="paragraph">
+                    <p> I pride myself in being capable of taking feedback, and not taking myself too seriously.<br></br> On my free time I dabble in photography, video editing and music.</p>
+                    </div>
+                    <div className="paragraph" style={{marginBottom: '2em', border: '1px solid'}}>
+                    <h2 style={{marginTop: "0.5em"}}>Technologies I know</h2>
+                    <br></br>
+                    <h4>C# - Unity - HTML - CSS - JS - React </h4>
+                    <br></br>
+                    </div>
+                    <div className="paragraph" style={{border: '1px solid'}}>
+                    <h2 style={{marginTop: "0.5em"}} >Stuff I am interested in</h2>
+                    <br></br>
+                    <h4>C++ - Python - Rust - Docker - AND MORE! </h4>
+                    <br></br>
+                    </div>
+                </div>
+            </div>
             <div className="profile-picture">
-            <img style={{height: 750, width: 375}} src={profile} alt="profile"></img>
+            <img src={profile} alt="profile"></img>
             </div>
           </div>
         <Container type="cv">

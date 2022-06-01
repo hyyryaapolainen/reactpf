@@ -6,7 +6,7 @@ import {GalleryItem} from '../components/layout.js'
 
 function Projects() {
 
-    const [option, setOption] = useState('nothing');
+    const [option, setOption] = useState('category1');
     
     const handleOptionChange = changeEvent => {
         setOption(changeEvent.target.value)
@@ -43,20 +43,7 @@ function Projects() {
                     <span className="input-text"> Web </span>
                 </label>
             </li>
-            <li className="categoryItem">
-                <label className="checkbox">
-                    <input 
-                    type="radio" 
-                    name="category" 
-                    value="category3"
-                    checked={option === "category3"}
-                    onChange={handleOptionChange}
-                    className="categoryselect"
-                    />
-                    <span className="checkmark"></span>
-                    <span className="input-text"> Pixel Art </span>
-                </label>
-            </li>
+          
         </ul>
         </div>
         

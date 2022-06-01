@@ -24,3 +24,5 @@ export function About() {
 }
 
 export default About
+
+/* this was repurposed for home page */

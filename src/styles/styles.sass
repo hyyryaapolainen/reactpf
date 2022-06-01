@@ -38,29 +38,27 @@ $--accent-color: black
     font-weight: bold
     font-size: 30px
   li
-    list-style: none
-.item-subtitle
+    list-style: none  
 .center
-  justify-content: space-around
   display: flex
   height: 100%
 .chapter
   margin-top: 2em
   display: flex
-  flex-direction: row
+  flex-direction: column
   width: 80%
   margin: auto
-
-.paragraph
+.about
   width: 50%
+  text-align: center
+.paragraph
   height: 20%
-  margin: 1em
-  padding-top: 1em
-  padding-bottom: 2em
+  margin-bottom: 1em
 .center.main
   align-items: center
-  height: 100%
   width: 100%
+  display: flex
+  flex-direction: row
   z-index: -10
 .text
   display: flex
@@ -129,17 +127,19 @@ h2
   text-decoration: none
   display: inline-block
   font-size: 16px
-  width: 80%
+  width: 50%
+  margin: auto
   cursor: pointer
   color: $--side-bg-color
   background-color: $--main-bg-color
 .profile-picture
-  height: 100%
-  width: 300px
-  position: relative
+  width: 25%
+  margin: auto
   img
-    position: absolute
-    bottom: 0
+    width: 80%
+    display: block
+    margin: auto
+    border-radius: 35px
 .gallery-container
   display: flex
   flex-direction: column
@@ -150,10 +150,14 @@ h2
   flex-direction: row
   flex-wrap: wrap
   display: flex
+  
 .gallery-item
   margin: 0 auto 2em auto
   padding-bottom: 2em
   position: relative
+  div
+    display: block
+    margin: auto
 .category:last-of-type
     margin-bottom: 8vh
 .category-title
