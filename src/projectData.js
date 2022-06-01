@@ -47,7 +47,7 @@ const projectData = [
       category: 1
     },
     {
-      name: "Portfolio website - 2022",
+      name: "Portfolio Website - 2022",
       description: "I made this webpage as a github pages repo to present some of the work I've done during my studies",
       id: 2,
       pic: defaultPic,
