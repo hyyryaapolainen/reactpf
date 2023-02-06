@@ -331,6 +331,9 @@ h2 {
 .categoryList .categoryItem .checkbox {
   font-size: 1em;
 }
+.categoryList .categoryItem .input-text{
+  font-size: 2em;
+}
 
 .categoryList .categoryItem input {
   opacity: 0;
