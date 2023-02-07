@@ -31,7 +31,7 @@ function Projects() {
             </li>
             <li className="categoryItem">
                 <label className="checkbox">
-                    <input 
+                    <input
                     type="radio" 
                     name="category" 
                     value="category2"
@@ -46,9 +46,8 @@ function Projects() {
           
         </ul>
         </div>
-        
-        {option === 'category1' ? <div className="category">
-           <h4 className="category-title">Games</h4>
+        {option === 'category1' ? <div className="category fade-up">
+           <h4 className="category-title">Game Development</h4>
             <div className="category-items">
             {projectData.map(project => {if(project.category === 1){
             return (<GalleryItem key={project.id} pr={project}></GalleryItem>)
@@ -56,7 +55,7 @@ function Projects() {
             })}</div></div>
          : ``}
         
-        {option === 'category2' ? <div className="category">
+        {option === 'category2' ? <div className="category fade-up">
         <h4 className="category-title">Web Development</h4>
             <div className="category-items">
             {projectData.map(project => { if(project.category === 2){

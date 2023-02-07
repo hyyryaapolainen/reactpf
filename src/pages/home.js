@@ -7,19 +7,19 @@ function Home() {
     return (
       <div style={{overflow: 'hidden'}}>
         <div ref={componentContainer} className="component-container">
-          <div style={{height: 750, overflow: 'hidden'}} className="center main fade-in">
-          <div className="center" style={{
-             textAlign: 'center', height: '100%', width: '50%'}}>
+          <div className="center main fade-in">
+          <div className="center">
                  <div className="chapter">
+                 <div className="paragraph">
+                    <h1>Aapo Hyyryläinen</h1>
+                  </div>
                     <div className="paragraph">
-                    <h2>About me</h2>
-                    <br></br>
                     <p>I am a graduated business IT student from JAMK University of Applied Sciences. After completing my studies at JAMK, I decided to 
                       broaden my expertise and started studying Computer Science at LUT University.
                     </p>
                     </div>
                     <div className="paragraph">
-                    <p> I am a Business IT graduate with excellent customer service skills, an analytical mind and an unquenchable thirst for knowledge. </p>
+                    <p> I am an aspiring web developer with excellent customer service skills, an analytical mind and an unquenchable thirst for knowledge. </p>
                     </div>
                     <div className="paragraph">
                     <p> I pride myself in being capable of taking feedback, and not taking myself too seriously.<br></br> On my free time I dabble in game development, music and video editing.</p>
@@ -44,7 +44,7 @@ function Home() {
           </div>
         <Container type="cv">
           <div className="center">
-            <Text type="cv">
+            <Text type="cv">              
                 <div className="cv title">
                     <h2>Work Experience</h2>
                 </div>
@@ -80,7 +80,7 @@ function Home() {
                 </CvItem>
             </Text>
             <div className="cv text small-text">
-              <h1> "Jack of all trades, master of maybe a few"</h1>
+              <h1 id="quote-text"> "Jack of all trades, master of maybe a few"</h1>
             </div>
             <Text type="cv">
               <div className="cv title">
