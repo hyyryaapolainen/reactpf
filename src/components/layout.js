@@ -79,7 +79,6 @@ export function Footer() {
 
 export function Container(props) {
     return <div className={"container "+ props.type}>
-      <div className="background-picture"><img src={props.img} alt=""></img></div>
       {props.children}
     </div>;
   }
@@ -97,28 +96,33 @@ export function GalleryItem( {pr} ) {
   }
     return (
         <React.Fragment>
-        <div className="gallery-item" style={{height: "40%", width: "40%"}}>
+        <div className="gallery-item">
         <h4 className="gallery-title" >{pr.name}</h4>
-        <div onClick ={() => setIsOpen(isOpen => !isOpen)} style={{borderRadius: '25px', border: '1px solid',height: pr.picDim[0], width: pr.picDim[1]}}>
-        <motion.div  style={{borderRadius: '25px', border: '1px solid', height: "100%", width: "100%"}} 
+        <div className="image-container" onClick ={() => setIsOpen(isOpen => !isOpen)}>
+        <motion.div
         animate={isOpen ? "open" : "closed"}
         variants = {variants}
         >
-        <img src={pr.pic}  style={{borderRadius: '25px', height: "100%", width: "100%"}} />
+        <img className="gallery-image" src= {pr.pic}/>
         </motion.div>
         <motion.div style=
         {{position: "absolute",
         opacity: "0",
-        left: "0",top: "30%",
+        left: "0",
+        top: "30%",
         right: "0",
-        margin: "auto", height: pr.picDim[0], width: pr.picDim[1]-30}}
+        height: "80%",
+        marginLeft: "auto",
+        marginRight: "auto",
+        width: "70%",
+        textAlign: "center"
+        }}
         animate={isOpen ? "closed" : "open"}
-        variants = {variants}><div className="item-subtitle" style={{textAlign: "center", marginBottom: "2em"}}>{pr.description}</div>
+        variants = {variants}><div className="item-subtitle">{pr.description}</div>
         <div className="item-subtitle" style={{textAlign: "center"}}>{pr.subtitle}</div>
-        <br></br>
         {isOpen &&
-        <div className="item-subtitle" style={{fontSize: "70%"}}>
-          <a style={{zIndex: "1"}} href={pr.link}>{pr.link}</a>
+        <div className="item-subtitle" style={{fontSize: "100%"}}>
+          <a style={{zIndex: "2"}} href={pr.link}>{pr.link}</a>
         </div>
         }
         </motion.div>

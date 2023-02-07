@@ -39,9 +39,15 @@ $--accent-color: black
     font-size: 30px
   li
     list-style: none  
-.center
+.center.main
   display: flex
   height: 100%
+  width: 50%
+  text-align: center
+  margin-bottom: 2em
+  margin-top: 3em
+  .center
+    width:50%
 .chapter
   margin-top: 2em
   display: flex
@@ -54,6 +60,8 @@ $--accent-color: black
 .paragraph
   height: 20%
   margin-bottom: 1em
+  p
+    font-size: 1.25em
 .center.main
   align-items: center
   width: 100%
@@ -76,7 +84,7 @@ $--accent-color: black
   justify-content: space-around
   color: $--main-bg-color
   .text
-    width: 90%
+    width: 100%
   .title
     position: absolute
     top: 25px
@@ -96,6 +104,10 @@ $--accent-color: black
     margin-bottom: 8vh
   .icon
     margin: 0 1.5em
+.item-subtitle
+  font-size: 1.5em
+  text-align: center
+  margin-bottom: 1em
 .flippy-container
   width: 50%
   margin: auto
@@ -133,7 +145,7 @@ h2
   color: $--side-bg-color
   background-color: $--main-bg-color
 .profile-picture
-  width: 25%
+  width: 30em
   margin: auto
   img
     width: 80%
@@ -145,19 +157,30 @@ h2
   flex-direction: column
 .gallery-title  
   margin-bottom: 1em
+  font-size: 2em
 .category-items
   text-align: center
-  flex-direction: row
+  flex-direction: column
   flex-wrap: wrap
   display: flex
-  
+
 .gallery-item
-  margin: 0 auto 2em auto
-  padding-bottom: 2em
+  margin: 2em auto 2em auto
   position: relative
-  div
-    display: block
-    margin: auto
+  width: 100%
+  
+.image-container
+  cursor: pointer
+  width: 50%
+  margin-left: auto
+  margin-right: auto
+
+.gallery-image
+  object-fit: cover
+  width: 600px
+  height: 350px
+  border-radius: 25px
+
 .category:last-of-type
     margin-bottom: 8vh
 .category-title
@@ -174,12 +197,11 @@ h2
     list-style: none
     margin: 5em 0 0 0
     width: 30%
-
     position: relative
     justify-content: center
     display: flex
     .checkbox
-      font-size: 1em
+      font-size: 4em
     input
       opacity: 0
       position: absolute
@@ -191,25 +213,25 @@ h2
       transition: width 1.25s
       cursor: pointer
       &:checked ~ .checkmark
-        background-color: green
-        width: 80%
-      &:checked
-        width: 80%
+        border: 2px solid
+      &:hover ~ .checkmark
+        width: 70%
     .checkmark
+      border: 2px dotted
       position: absolute
       display: block
       top: 50%
       left: 50%
       transform: translate(-50%, -50%)
       height: 100%
-      width: 30%
+      width: 60%
       z-index: -1
-      background-color: red
-      transition: width 1.25s
+      border-radius: 25px
+      transition: width 1.25s, height 1.25s
 label
   text-align: center
   display: block
-  color: white
+  color: black
 line
   stroke: black
   fill: yellow
@@ -226,6 +248,16 @@ ellipse
   to
     opacity: 1
     transform: translateX(0px)
+@keyframes fade-up
+  from
+    opacity: 0
+    transform: translateY(150px)
+  to
+    opacity: 1
+    transform: translateY(0px)
+.fade-up
+  animation-name: fade-up
+  animation-duration: 1s
 
 .fade-in
   animation-name: fade-in
@@ -269,4 +301,124 @@ ellipse
   color: black
   transition: all 0.8s
 
+$layout-large: 1200px
+$layout-medium: 750px
+$layout-small: 600px
+$layout-mobile: 404px
+$layout-smiley: 300px
 
+@media (max-width: $layout-large)
+  body
+    margin: 0
+  .category-items
+    flex-direction: column
+  .gallery-image
+    width: 300px
+    height: 300px
+  
+  .item-subtitle
+    font-size: 1.25em
+  .categoryList
+    display: flex
+    justify-content: space-around
+    .categoryItem
+      list-style: none
+      margin: 2em 0 0 0
+      width: 60%
+      position: relative
+      justify-content: center
+      display: flex
+      .checkbox
+        font-size: 2em
+  .paragraph
+    font-size: 0.80em
+    margin-bottom: 2em
+  .profile-picture
+    height: 20%
+  .center.main
+    margin-top: 2em
+    flex-direction: column
+    .center
+      width: 75%
+  .cv.text
+    width: 100%
+  .cv.title
+    h2
+      font-size: 2.5em
+  #quote-text
+    display: none
+  .paragraph
+    p
+      font-size: 1.5em
+  .categoryList
+    flex-direction: column
+    margin-right: auto
+    margin-left: auto
+    width: 66%
+    .categoryItem
+      width: 100%
+  
+@media (max-width: $layout-medium)
+  .paragraph
+    p
+      font-size: 1.35em
+    h2
+      font-size: 2em
+      margin: 0 1em 0 1em
+    h4
+      font-size: 1.5em
+      margin: 0 1em 0 1em
+  .categoryList
+    margin-right: auto
+    margin-left: auto
+    width: 66%
+    flex-direction: column
+    .categoryItem
+      width: 100%
+@media (max-width: $layout-small)
+  .profile-picture
+    width: 75%
+  .gallery-item
+    h4
+      font-size: 1.5em
+  .item-subtitle
+      font-size: 1em
+      a
+        font-size: 0.75em
+  .image-container
+    div
+      .gallery-image
+        width: 200px
+        height: 200px
+  .category-title
+    font-size: 1.75em
+@media (max-width: $layout-mobile)
+  .paragraph
+    p
+      font-size: 1.35em
+    h2
+      font-size: 1.5em
+      margin: 0 1em 0 1em
+    h4
+      font-size: 1.0em
+      margin: 0 1em 0 1em
+  .image-container
+    div
+      .gallery-image
+        width: 100px
+        height: 100px
+  .item-subtitle
+    font-size: 0.75em
+    a
+      font-size: 0.65em
+  .gallery-item
+    h4
+      font-size: 1.25em
+  .input-text
+    font-size: 0.65em
+  .cv.item:nth-child(2)
+    margin-top: 10em
+
+@media (max-width: $layout-smiley)
+  *
+    display: none
