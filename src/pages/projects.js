@@ -13,7 +13,7 @@ function Projects() {
     }
     return (
         <React.Suspense fallback={<div>Loading...</div>}>
-        <div>
+        <div className="opacity-in">
          <ul className="categoryList">    
             <li className="categoryItem">
                 <label className="checkbox">

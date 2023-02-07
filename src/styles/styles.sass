@@ -1,14 +1,37 @@
-$--main-bg-color: white
-$--side-bg-color: black
-$--accent-color: black
+$main-bg-color: white
+$side-bg-color: white
+$accent-color: #009c07
+$font-color: black
+
+$main-dark-bg-color: #383838
+$side-dark-bg-color: #4d4d4d
+$accent-dark-color: #009c07
+$font-dark-color: darkgray
+
+
+
+:root
+  --accent-color: #{$accent-color}
+  --side-bg-color: #{$side-bg-color}
+  --main-bg-color: #{$main-bg-color}
+  --font-color: #{$font-color}
+
+[data-theme="dark"]
+  --accent-color: #{$accent-dark-color}
+  --side-bg-color: #{$side-dark-bg-color}
+  --main-bg-color: #{$main-dark-bg-color}
+  --font-color: #{$font-dark-color}
 
 *
   margin: 0px
   padding: 0px
   box-sizing: border-box    
   font-family: 'Open Sans', sans-serif
+.App
+  background-color: var(--main-bg-color)
 .header
-  margin: 0.5em 0 2em 0
+  margin: 0 0 2em 0
+  background-color: var(--main-bg-color)
 .nav-links 
   display: flex
   justify-content: space-around
@@ -18,16 +41,31 @@ $--accent-color: black
   a
     list-style: none
     text-decoration: none
+.center-background
+  position: absolute
+  background-color: var(--side-bg-color)
+  border-radius: 5px
+  z-index: 0
+  height: 60%
+  width: 90%
+  position: absolute
+  left: 0
+  right: 0
+  margin-left: auto 
+  margin-right: auto 
+  display: block
+
 .footer
   display: flex
   justify-content: space-around
   align-items: center
   min-height: 4vh
-  background-color: $--accent-color
+  background-color: var(--main-bg-color)
   position: fixed
   bottom: 0
   left: 0
   right: 0
+  z-index: 5
 .footer-links
   display: flex
   justify-content: space-around
@@ -37,17 +75,26 @@ $--accent-color: black
     letter-spacing: 3px
     font-weight: bold
     font-size: 30px
+    i
+      color: var(--font-color)
   li
     list-style: none  
+.component-container
+  background-color: var(--main-bg-color)
+
 .center.main
   display: flex
   height: 100%
-  width: 50%
   text-align: center
-  margin-bottom: 2em
+  margin-bottom: 5em
   margin-top: 3em
+  align-items: center
+  width: 100%
+  flex-direction: row
+  z-index: -2
   .center
     width:50%
+    z-index: 1
 .chapter
   margin-top: 2em
   display: flex
@@ -57,17 +104,46 @@ $--accent-color: black
 .about
   width: 50%
   text-align: center
+.modes
+  height: 2em
+  div
+    position: absolute
+    top: 5px
+    left: 5px
+    button
+      flex-direction: column
+      display: flex
+      margin: 1em
+
+.lighting-mode-button
+  font-size: 2em
+  background: none
+  color: var(--font-color)
+  border: none
+  padding: 0
+  cursor: pointer
+  outline: inherit
 .paragraph
   height: 20%
   margin-bottom: 1em
+  *
+    color: var(--font-color)
   p
     font-size: 1.25em
-.center.main
-  align-items: center
-  width: 100%
-  display: flex
-  flex-direction: row
-  z-index: -10
+.underline
+  border-top: 3px solid
+  border-color: var(--accent-color)
+  border-radius: 5px
+  width: 60%
+  margin-left: auto
+  margin-right: auto
+  height: 10px
+  display: block
+.mid
+  width: 50%
+.small
+  width: 40%
+
 .text
   display: flex
   flex-direction: column
@@ -79,10 +155,10 @@ $--accent-color: black
 .cv.item:nth-child(2)
     margin-top: 6em
 .container.cv
-  background: $--accent-color
+  background-color: var(--main-bg-color)
 .cv
   justify-content: space-around
-  color: $--main-bg-color
+  color: var(--font-color)
   .text
     width: 100%
   .title
@@ -105,9 +181,14 @@ $--accent-color: black
   .icon
     margin: 0 1.5em
 .item-subtitle
+  color: var(--font-color)
   font-size: 1.5em
   text-align: center
   margin-bottom: 1em
+  a
+    color: var(--font-color)
+    text-decoration: underline
+    cursor: pointer
 .flippy-container
   width: 50%
   margin: auto
@@ -132,30 +213,22 @@ h3
   font-size: 20px
 h2
   font-size: 30px
-.contact-button
-  font-weight: bold
-  padding: 16px 32px
-  text-align: center
-  text-decoration: none
-  display: inline-block
-  font-size: 16px
-  width: 50%
-  margin: auto
-  cursor: pointer
-  color: $--side-bg-color
-  background-color: $--main-bg-color
 .profile-picture
   width: 30em
   margin: auto
+  z-index: 1
   img
     width: 80%
     display: block
     margin: auto
-    border-radius: 35px
+    border-radius: 25px
+    border: 2px solid
+    border-color: var(--font-color)
 .gallery-container
   display: flex
   flex-direction: column
 .gallery-title  
+  color: var(--font-color)  
   margin-bottom: 1em
   font-size: 2em
 .category-items
@@ -180,10 +253,13 @@ h2
   width: 600px
   height: 350px
   border-radius: 25px
+  border: 2px solid
+  border-color: var(--font-color)
 
 .category:last-of-type
-    margin-bottom: 8vh
+    margin-bottom: 4vh
 .category-title
+  color: var(--font-color)
   margin: 2em 0
   font-size: 40px
   text-align: center
@@ -213,11 +289,14 @@ h2
       transition: width 1.25s
       cursor: pointer
       &:checked ~ .checkmark
-        border: 2px solid
+        border: 2px solid black
+        border-color: var(--font-color)
       &:hover ~ .checkmark
         width: 70%
     .checkmark
+      
       border: 2px dotted
+      border-color: var(--font-color)
       position: absolute
       display: block
       top: 50%
@@ -225,15 +304,15 @@ h2
       transform: translate(-50%, -50%)
       height: 100%
       width: 60%
-      z-index: -1
+      z-index: 0
       border-radius: 25px
       transition: width 1.25s, height 1.25s
 label
   text-align: center
   display: block
-  color: black
+  color: var(--font-color)
 line
-  stroke: black
+  color: var(--font-color)
   fill: yellow
   stroke-width: 5px
 ellipse
@@ -248,12 +327,33 @@ ellipse
   to
     opacity: 1
     transform: translateX(0px)
+
+@keyframes fade-left
+  from
+    opacity: 0
+    transform: translateX(-200px)
+  to
+    opacity: 1
+    transform: translateX(0px)
+  
+.opacity-in
+  animation-name: fade-left
+  animation-duration: 1.25s
+
+@keyframes fade-in
+  from
+    opacity: 0
+    transform: translateX(250px)
+  to
+    opacity: 1
+    transform: translateX(0px)
 @keyframes fade-up
   from
     opacity: 0
     transform: translateY(150px)
   to
     opacity: 1
+
     transform: translateY(0px)
 .fade-up
   animation-name: fade-up
@@ -261,7 +361,8 @@ ellipse
 
 .fade-in
   animation-name: fade-in
-  animation-duration: 2s
+  animation-duration: 1s
+  overflow-x: hidden
 .item-circle
   display: block
   width: 60px
@@ -289,7 +390,8 @@ ellipse
   left: -20px
   right: -20px
   bottom: -20px
-  border: 8px solid white
+  border: 8px solid
+  border-color: var(--font-color)
   border-radius: 50%
 .header-text
   position: absolute
@@ -298,7 +400,8 @@ ellipse
   left: 50%
   font-size: 25px
   transform: translate(-50%, 150%)
-  color: black
+  color: var(--font-color)
+  background-color: var(--main-bg-color)
   transition: all 0.8s
 
 $layout-large: 1200px
@@ -315,9 +418,13 @@ $layout-smiley: 300px
   .gallery-image
     width: 300px
     height: 300px
-  
+  .center-background
+    top: 200px
+    height: 100%
+    width: 70%
   .item-subtitle
     font-size: 1.25em
+    
   .categoryList
     display: flex
     justify-content: space-around
@@ -350,6 +457,7 @@ $layout-smiley: 300px
   .paragraph
     p
       font-size: 1.5em
+      color: var(--font-color)
   .categoryList
     flex-direction: column
     margin-right: auto
@@ -374,7 +482,9 @@ $layout-smiley: 300px
     width: 66%
     flex-direction: column
     .categoryItem
-      width: 100%
+      width: 100
+  .underline 
+    width: 60%
 @media (max-width: $layout-small)
   .profile-picture
     width: 75%
@@ -392,7 +502,12 @@ $layout-smiley: 300px
         height: 200px
   .category-title
     font-size: 1.75em
+  .lighting-mode-button
+    font-size: 1.5em
+
 @media (max-width: $layout-mobile)
+  .lighting-mode-button
+    font-size: 1em
   .paragraph
     p
       font-size: 1.35em
@@ -402,6 +517,8 @@ $layout-smiley: 300px
     h4
       font-size: 1.0em
       margin: 0 1em 0 1em
+    h1
+      font-size: 2em
   .image-container
     div
       .gallery-image
@@ -418,7 +535,8 @@ $layout-smiley: 300px
     font-size: 0.65em
   .cv.item:nth-child(2)
     margin-top: 10em
-
+  .underline
+    width: 80%
 @media (max-width: $layout-smiley)
   *
     display: none

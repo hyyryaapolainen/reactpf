@@ -4,17 +4,17 @@ import '../styles/styles.css'
 import {Link} from 'react-router-dom'
 import Flippy, { FrontSide, BackSide } from 'react-flippy'
 import projectData from '../projectData'
-  
+
 const headerlinks = [
   {
-    color: "#ff0055",
+    color: "#009c07",
     location: '/reactpf',
     name: 'Home',
     id: 'linktohome',
     icon: "fas fa-home"
   },
   {
-    color: "#0099ff",
+    color: "#00819e",
     location: '/Projects',
     name: 'Projects',
     id: 'linktoprojects',
@@ -165,11 +165,11 @@ export function CvItem (props) {
   return (
     <React.Fragment>
         <div className="cv item">
-          <div><i className={props.icon}></i></div>
+          <div><i className={props.jobInfo['icon']}></i></div>
         <div>
-          <h3>{props.job}</h3>
-          <div className="cv description"><p>{props.description}</p>
-          <p>{props.duties}</p></div>
+          <h3>{props.jobInfo['job']}</h3>
+          <div className="cv description"><p>{props.jobInfo['description']}</p>
+          <p>{props.jobInfo['duties']}</p></div>
           </div>
         </div>
     </React.Fragment>
@@ -202,7 +202,7 @@ export function CvItem (props) {
       return () => {}
     }, [selected])
     return (
-        <motion.div>
+        <motion.div className="header-container">
         <AnimateSharedLayout>
         <div className="header">
         <ul className="nav-links">
@@ -219,6 +219,9 @@ export function CvItem (props) {
         </AnimateSharedLayout>
         </motion.div>
     )
+}
+function setColor (newColor){
+  document.documentElement.style.setProperty('--accent-color', newColor);
 }
 function Item({ link, isSelected, onClick }) {
 
