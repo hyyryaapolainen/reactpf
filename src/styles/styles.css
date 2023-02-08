@@ -3,13 +3,15 @@
   --side-bg-color: white;
   --main-bg-color: white;
   --font-color: black;
+  --icon-color: black;
 }
 
 [data-theme=dark] {
-  --accent-color: #009c07;
+  --accent-color: white;
   --side-bg-color: #4d4d4d;
   --main-bg-color: #383838;
-  --font-color: darkgray;
+  --font-color: lightgray;
+  --icon-color: white;
 }
 
 * {
@@ -43,16 +45,22 @@
 .center-background {
   position: absolute;
   background-color: var(--side-bg-color);
+  transition: background-color 1s;
   border-radius: 5px;
   z-index: 0;
-  height: 60%;
-  width: 90%;
+  height: 47%;
+  width: 95%;
+  top: 22.5%;
   position: absolute;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+
+#quote-text {
+  color: var(--accent-color);
 }
 
 .footer {
@@ -80,7 +88,8 @@
   font-size: 30px;
 }
 .footer-links a i {
-  color: var(--font-color);
+  color: var(--icon-color);
+  transition: color 1s;
 }
 .footer-links li {
   list-style: none;
@@ -136,7 +145,7 @@
 .lighting-mode-button {
   font-size: 2em;
   background: none;
-  color: var(--font-color);
+  color: var(--icon-color);
   border: none;
   padding: 0;
   cursor: pointer;
@@ -147,11 +156,14 @@
   height: 20%;
   margin-bottom: 1em;
 }
-.paragraph * {
-  color: var(--font-color);
+.paragraph h1, .paragraph h2, .paragraph h3 {
+  color: var(--accent-color);
+  transition: color 1s;
 }
-.paragraph p {
+.paragraph p, .paragraph h4 {
   font-size: 1.25em;
+  color: var(--font-color);
+  transition: color 1s;
 }
 
 .underline {
@@ -194,7 +206,6 @@
 
 .cv {
   justify-content: space-around;
-  color: var(--font-color);
 }
 .cv .text {
   width: 100%;
@@ -203,8 +214,9 @@
   position: absolute;
   top: 25px;
   text-align: center;
-  left: 10%;
-  right: 10%;
+  left: 0;
+  right: 0;
+  color: --icon-color;
 }
 .cv .item {
   display: flex;
@@ -213,18 +225,23 @@
   align-items: center;
   text-align: center;
 }
+.cv .item div i, .cv .item div h3 {
+  color: var(--accent-color);
+}
 .cv .description {
   width: 76%;
   margin: auto;
+  color: var(--font-color);
 }
 .cv .item:last-of-type {
   margin-bottom: 8vh;
 }
-.cv .icon {
-  margin: 0 1.5em;
+.cv div i {
+  margin-bottom: 0.5em;
 }
 
 .item-subtitle {
+  transition: color 1s;
   color: var(--font-color);
   font-size: 1.5em;
   text-align: center;
@@ -272,6 +289,7 @@ h3 {
 
 h2 {
   font-size: 30px;
+  color: var(--accent-color);
 }
 
 .profile-picture {
@@ -285,7 +303,7 @@ h2 {
   margin: auto;
   border-radius: 25px;
   border: 2px solid;
-  border-color: var(--font-color);
+  border-color: var(--accent-color);
 }
 
 .gallery-container {
@@ -294,25 +312,52 @@ h2 {
 }
 
 .gallery-title {
-  color: var(--font-color);
+  z-index: 1;
+  color: var(--accent-color);
+  transition: color 1s;
   margin-bottom: 1em;
   font-size: 2em;
 }
 
 .category-items {
+  z-index: 1;
   text-align: center;
   flex-direction: column;
   flex-wrap: wrap;
   display: flex;
+}
+.category-items .gallery-background {
+  position: absolute;
+  background-color: var(--side-bg-color);
+  transition: background-color 1s;
+  border-radius: 25px;
+  z-index: -1;
+  height: 10%;
+  top: 50%;
+  width: 10%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  transition: width 1s, top 1s, height 1s;
+}
+.category-items .item-open {
+  width: 80%;
+  top: 0%;
+  height: 100%;
 }
 
 .gallery-item {
   margin: 2em auto 2em auto;
   position: relative;
   width: 100%;
+  z-index: 2;
 }
 
 .image-container {
+  z-index: 2;
   cursor: pointer;
   width: 50%;
   margin-left: auto;
@@ -326,7 +371,7 @@ h2 {
   height: 350px;
   border-radius: 25px;
   border: 2px solid;
-  border-color: var(--font-color);
+  border-color: var(--accent-color);
 }
 
 .category:last-of-type {
@@ -334,7 +379,8 @@ h2 {
 }
 
 .category-title {
-  color: var(--font-color);
+  transition: color 1s;
+  color: var(--accent-color);
   margin: 2em 0;
   font-size: 40px;
   text-align: center;
@@ -372,15 +418,16 @@ h2 {
   cursor: pointer;
 }
 .categoryList .categoryItem input:checked ~ .checkmark {
-  border: 2px solid black;
-  border-color: var(--font-color);
+  border: 2px solid;
+  width: 75%;
 }
 .categoryList .categoryItem input:hover ~ .checkmark {
-  width: 70%;
+  width: 75%;
 }
 .categoryList .categoryItem .checkmark {
   border: 2px dotted;
-  border-color: var(--font-color);
+  border-color: var(--accent-color);
+  transition: border-color 1s;
   position: absolute;
   display: block;
   top: 50%;
@@ -389,37 +436,15 @@ h2 {
   height: 100%;
   width: 60%;
   z-index: 0;
-  border-radius: 25px;
+  border-radius: 10px;
   transition: width 1.25s, height 1.25s;
 }
 
 label {
   text-align: center;
   display: block;
-  color: var(--font-color);
-}
-
-line {
-  color: var(--font-color);
-  fill: yellow;
-  stroke-width: 5px;
-}
-
-ellipse {
-  stroke-width: 5px;
-  fill: yellow;
-  stroke: black;
-}
-
-@-webkit-keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateX(250px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0px);
-  }
+  color: var(--accent-color);
+  transition: color 1s;
 }
 
 @keyframes fade-in {
@@ -432,7 +457,7 @@ ellipse {
     transform: translateX(0px);
   }
 }
-@-webkit-keyframes fade-left {
+@keyframes fade-left {
   from {
     opacity: 0;
     transform: translateX(-200px);
@@ -452,11 +477,22 @@ ellipse {
     transform: translateX(0px);
   }
 }
+@keyframes opacity-out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.opacity-out {
+  animation-name: opacity-out;
+  animation-duration: 1.25s;
+}
+
 .opacity-in {
-  -webkit-animation-name: fade-left;
-          animation-name: fade-left;
-  -webkit-animation-duration: 1.25s;
-          animation-duration: 1.25s;
+  animation-name: fade-left;
+  animation-duration: 1.25s;
 }
 
 @keyframes fade-in {
@@ -467,16 +503,6 @@ ellipse {
   to {
     opacity: 1;
     transform: translateX(0px);
-  }
-}
-@-webkit-keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(150px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
   }
 }
 @keyframes fade-up {
@@ -490,17 +516,13 @@ ellipse {
   }
 }
 .fade-up {
-  -webkit-animation-name: fade-up;
-          animation-name: fade-up;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-name: fade-up;
+  animation-duration: 1s;
 }
 
 .fade-in {
-  -webkit-animation-name: fade-in;
-          animation-name: fade-in;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-name: fade-in;
+  animation-duration: 1s;
   overflow-x: hidden;
 }
 
@@ -515,6 +537,7 @@ ellipse {
   flex-shrink: 0;
 }
 .item-circle:hover .header-text {
+  background-color: none;
   opacity: 1;
   transition: all 0.5s;
   transform: translate(-50%, 160%);
@@ -547,8 +570,7 @@ ellipse {
   left: 50%;
   font-size: 25px;
   transform: translate(-50%, 150%);
-  color: var(--font-color);
-  background-color: var(--main-bg-color);
+  color: var(--icon-color);
   transition: all 0.8s;
 }
 
@@ -607,7 +629,9 @@ ellipse {
     font-size: 2.5em;
   }
   #quote-text {
-    display: none;
+    font-size: 2em;
+    width: 80%;
+    margin: auto;
   }
   .paragraph p {
     font-size: 1.5em;
@@ -649,6 +673,9 @@ ellipse {
   }
 }
 @media (max-width: 600px) {
+  .category {
+    min-height: 1000px;
+  }
   .profile-picture {
     width: 75%;
   }
@@ -670,6 +697,9 @@ ellipse {
   }
   .lighting-mode-button {
     font-size: 1.5em;
+  }
+  .gallery-background {
+    opacity: 0;
   }
 }
 @media (max-width: 404px) {

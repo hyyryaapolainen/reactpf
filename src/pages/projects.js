@@ -1,27 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import projectData from '../projectData';
 import {GalleryItem} from '../components/layout.js'
-//import { motion } from "framer-motion"
 
+
+const titles = [
+    'Game Development',
+    'Web Development'
+]
 
 function Projects() {
 
-    const [option, setOption] = useState('category1');
-    
+    const [option, setOption] = useState(0);
+    const getItemsByCategory = (category) =>{
+        return [...projectData].filter(x => x.category === parseInt(category))
+      }
     const handleOptionChange = changeEvent => {
         setOption(changeEvent.target.value)
     }
+    const getCategorytitle = (category) => {
+        return titles[parseInt(category)]
+    }
     return (
         <React.Suspense fallback={<div>Loading...</div>}>
-        <div className="opacity-in">
+        <div className="opacity-out">
          <ul className="categoryList">    
             <li className="categoryItem">
                 <label className="checkbox">
                     <input 
                     type="radio" 
                     name="category" 
-                    value="category1"
-                    checked={option === "category1"}
+                    value={0} 
+                    checked={parseInt(option) === 0}
                     onChange={handleOptionChange}
                     className="categoryselect"
                     />
@@ -34,8 +43,8 @@ function Projects() {
                     <input
                     type="radio" 
                     name="category" 
-                    value="category2"
-                    checked={option === "category2"}
+                    value={1}
+                    checked={parseInt(option) === 1}
                     onChange={handleOptionChange}
                     className="categoryselect"
                     />
@@ -46,30 +55,13 @@ function Projects() {
           
         </ul>
         </div>
-        {option === 'category1' ? <div className="category fade-up">
-           <h4 className="category-title">Game Development</h4>
+        <div className="category fade-up">
+           <h4 className="category-title">{getCategorytitle(option)}</h4>
             <div className="category-items">
-            {projectData.map(project => {if(project.category === 1){
-            return (<GalleryItem key={project.id} pr={project}></GalleryItem>)
-            } else{return }
-            })}</div></div>
-         : ``}
-        
-        {option === 'category2' ? <div className="category fade-up">
-        <h4 className="category-title">Web Development</h4>
-            <div className="category-items">
-            {projectData.map(project => { if(project.category === 2){
-            return (<GalleryItem key={project.id} pr={project}></GalleryItem>)
-            } else{return }
-        })}</div></div>
-         : ``}
-         {option === 'category3' ? <div className="category">
-             <h4 className="category-title">Pixel Art</h4>
-            <div className="category-items">
-             {projectData.map(project => { if(project.category === 3) {
-            return (<GalleryItem key={project.id} pr={project}></GalleryItem>)
-        } else{return}})}</div></div>
-         : ``}
+            {getItemsByCategory(option).map(project => 
+            <GalleryItem key={project.id} pr={project}/>)}
+            </div>
+        </div>
         </React.Suspense>
     )
 }

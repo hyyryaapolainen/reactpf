@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useRef} from "react";
 import {Container, Text, CvItem } from '../components/layout'
 import profile from '../images/outdoor (25) edited.png'
 import translations from '../textData.js'
@@ -8,7 +8,7 @@ function Home(props) {
     const componentContainer = useRef(null)
     const language = props.lang
     const getTranslation = (language, text) =>{
-      return translations[language][text] != undefined ? translations[language][text] : " Missing text at " + text
+      return translations[language][text] !== undefined ? translations[language][text] : " Missing text at " + text
     }
     const getItemTranslation = (language, category, text) =>{
       return itemTranslations[language][category]
@@ -16,6 +16,7 @@ function Home(props) {
     return (
       <div style={{overflow: 'hidden', backgroundColor:"var(--main-bg-color)"}}>
         <div ref={componentContainer} className="component-container">
+          <div className="center-background"></div>
           <div className="center main">
           <div className="center fade-in">
                  <div className="chapter">
@@ -66,7 +67,7 @@ function Home(props) {
                 <div className="cv title">
                     <h2>{getTranslation(language, 'Work')}</h2>
                 </div>
-                {getItemTranslation(language,'work').map(x => <CvItem key={x['jobs']} jobInfo={x}/>)}
+                {getItemTranslation(language,'work').map(x => <CvItem key={x['job']} jobInfo={x}/>)}
             </Text>
             <div className="cv text small-text">
               <h1 id="quote-text">{getTranslation(language, 'Quote_text')}</h1>
@@ -75,7 +76,7 @@ function Home(props) {
               <div className="cv title">
                   <h2>Education</h2>
               </div>
-              {getItemTranslation(language,'education').map(x => <CvItem key={x['description']} jobInfo={x}/>)}
+              {getItemTranslation(language,'education').map(x => <CvItem key={x['job']} jobInfo={x}/>)}
             </Text>
           </div>
         </Container>

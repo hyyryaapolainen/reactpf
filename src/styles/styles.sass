@@ -2,12 +2,13 @@ $main-bg-color: white
 $side-bg-color: white
 $accent-color: #009c07
 $font-color: black
+$icon-color: black
 
 $main-dark-bg-color: #383838
 $side-dark-bg-color: #4d4d4d
-$accent-dark-color: #009c07
-$font-dark-color: darkgray
-
+$accent-dark-color: white
+$font-dark-color: lightgray
+$icon-dark-color: white
 
 
 :root
@@ -15,12 +16,14 @@ $font-dark-color: darkgray
   --side-bg-color: #{$side-bg-color}
   --main-bg-color: #{$main-bg-color}
   --font-color: #{$font-color}
+  --icon-color: #{$icon-color}
 
 [data-theme="dark"]
   --accent-color: #{$accent-dark-color}
   --side-bg-color: #{$side-dark-bg-color}
   --main-bg-color: #{$main-dark-bg-color}
   --font-color: #{$font-dark-color}
+  --icon-color: #{$icon-dark-color}
 
 *
   margin: 0px
@@ -44,17 +47,21 @@ $font-dark-color: darkgray
 .center-background
   position: absolute
   background-color: var(--side-bg-color)
+  transition: background-color 1s
   border-radius: 5px
   z-index: 0
-  height: 60%
-  width: 90%
+  height: 47%
+  width: 95%
+  top: 22.5%
   position: absolute
   left: 0
   right: 0
   margin-left: auto 
   margin-right: auto 
   display: block
-
+  
+#quote-text
+  color: var(--accent-color)
 .footer
   display: flex
   justify-content: space-around
@@ -76,7 +83,8 @@ $font-dark-color: darkgray
     font-weight: bold
     font-size: 30px
     i
-      color: var(--font-color)
+      color: var(--icon-color)
+      transition: color 1s
   li
     list-style: none  
 .component-container
@@ -118,7 +126,7 @@ $font-dark-color: darkgray
 .lighting-mode-button
   font-size: 2em
   background: none
-  color: var(--font-color)
+  color: var(--icon-color)
   border: none
   padding: 0
   cursor: pointer
@@ -126,10 +134,14 @@ $font-dark-color: darkgray
 .paragraph
   height: 20%
   margin-bottom: 1em
-  *
-    color: var(--font-color)
-  p
+  h1, h2, h3
+    color: var(--accent-color)
+    transition: color 1s
+  p, h4
     font-size: 1.25em
+    color: var(--font-color)
+    transition: color 1s
+
 .underline
   border-top: 3px solid
   border-color: var(--accent-color)
@@ -158,29 +170,38 @@ $font-dark-color: darkgray
   background-color: var(--main-bg-color)
 .cv
   justify-content: space-around
-  color: var(--font-color)
   .text
     width: 100%
   .title
     position: absolute
     top: 25px
     text-align: center
-    left: 10%
-    right: 10%
+    left: 0
+    right: 0
+    color: (--icon-color)
+    
   .item
     display: flex
     width: 80%
     margin: 1em auto
     align-items: center
     text-align: center
+    div
+      i, h3
+        color: var(--accent-color)
+
   .description
     width: 76%
     margin: auto
+    color: var(--font-color)
   .item:last-of-type
     margin-bottom: 8vh
-  .icon
-    margin: 0 1.5em
+  div
+    i
+      margin-bottom: 0.5em
+    
 .item-subtitle
+  transition: color 1s
   color: var(--font-color)
   font-size: 1.5em
   text-align: center
@@ -213,6 +234,7 @@ h3
   font-size: 20px
 h2
   font-size: 30px
+  color: var(--accent-color)
 .profile-picture
   width: 30em
   margin: auto
@@ -223,26 +245,51 @@ h2
     margin: auto
     border-radius: 25px
     border: 2px solid
-    border-color: var(--font-color)
+    border-color: var(--accent-color)
 .gallery-container
   display: flex
   flex-direction: column
 .gallery-title  
-  color: var(--font-color)  
+  z-index: 1
+  color: var(--accent-color)
+  transition: color 1s
   margin-bottom: 1em
   font-size: 2em
 .category-items
+  z-index: 1
   text-align: center
   flex-direction: column
   flex-wrap: wrap
   display: flex
+  .gallery-background
+    position: absolute
+    background-color: var(--side-bg-color)
+    transition: background-color 1s
+    border-radius: 25px
+    z-index: -1
+    height: 10%
+    top: 50%
+    width: 10%
+    position: absolute
+    left: 0
+    right: 0
+    margin-left: auto 
+    margin-right: auto 
+    display: block
+    transition: width 1s, top 1s, height 1s
+  .item-open
+    width: 80%
+    top: 0%
+    height: 100%
+
 
 .gallery-item
   margin: 2em auto 2em auto
   position: relative
   width: 100%
-  
+  z-index: 2
 .image-container
+  z-index: 2
   cursor: pointer
   width: 50%
   margin-left: auto
@@ -254,12 +301,13 @@ h2
   height: 350px
   border-radius: 25px
   border: 2px solid
-  border-color: var(--font-color)
+  border-color: var(--accent-color)
 
 .category:last-of-type
     margin-bottom: 4vh
 .category-title
-  color: var(--font-color)
+  transition: color 1s
+  color: var(--accent-color)
   margin: 2em 0
   font-size: 40px
   text-align: center
@@ -289,14 +337,14 @@ h2
       transition: width 1.25s
       cursor: pointer
       &:checked ~ .checkmark
-        border: 2px solid black
-        border-color: var(--font-color)
+        border: 2px solid
+        width: 75%
       &:hover ~ .checkmark
-        width: 70%
+        width: 75%
     .checkmark
-      
       border: 2px dotted
-      border-color: var(--font-color)
+      border-color: var(--accent-color)
+      transition: border-color 1s
       position: absolute
       display: block
       top: 50%
@@ -305,20 +353,13 @@ h2
       height: 100%
       width: 60%
       z-index: 0
-      border-radius: 25px
+      border-radius: 10px
       transition: width 1.25s, height 1.25s
 label
   text-align: center
   display: block
-  color: var(--font-color)
-line
-  color: var(--font-color)
-  fill: yellow
-  stroke-width: 5px
-ellipse
-  stroke-width: 5px
-  fill: yellow
-  stroke: black
+  color: var(--accent-color)
+  transition: color 1s
 
 @keyframes fade-in
   from
@@ -335,7 +376,21 @@ ellipse
   to
     opacity: 1
     transform: translateX(0px)
-  
+@keyframes fade-left
+  from
+    opacity: 0
+    transform: translateX(-200px)
+  to
+    opacity: 1
+    transform: translateX(0px)
+@keyframes opacity-out
+  from
+    opacity: 0
+  to
+    opacity: 1
+.opacity-out
+  animation-name: opacity-out
+  animation-duration: 1.25s
 .opacity-in
   animation-name: fade-left
   animation-duration: 1.25s
@@ -374,9 +429,11 @@ ellipse
   flex-shrink: 0
   &:hover
     .header-text
+      background-color: none
       opacity: 1
       transition: all 0.5s
       transform: translate(-50%, 160%)
+      
 .circle-icon
   position: absolute
   top: 50%
@@ -400,8 +457,7 @@ ellipse
   left: 50%
   font-size: 25px
   transform: translate(-50%, 150%)
-  color: var(--font-color)
-  background-color: var(--main-bg-color)
+  color: var(--icon-color)
   transition: all 0.8s
 
 $layout-large: 1200px
@@ -453,7 +509,9 @@ $layout-smiley: 300px
     h2
       font-size: 2.5em
   #quote-text
-    display: none
+    font-size: 2em
+    width: 80%
+    margin: auto
   .paragraph
     p
       font-size: 1.5em
@@ -486,6 +544,8 @@ $layout-smiley: 300px
   .underline 
     width: 60%
 @media (max-width: $layout-small)
+  .category
+    min-height: 1000px
   .profile-picture
     width: 75%
   .gallery-item
@@ -504,7 +564,8 @@ $layout-smiley: 300px
     font-size: 1.75em
   .lighting-mode-button
     font-size: 1.5em
-
+  .gallery-background
+    opacity: 0
 @media (max-width: $layout-mobile)
   .lighting-mode-button
     font-size: 1em

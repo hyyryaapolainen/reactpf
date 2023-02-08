@@ -2,8 +2,7 @@ import React, { useState, useEffect} from "react";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import '../styles/styles.css'
 import {Link} from 'react-router-dom'
-import Flippy, { FrontSide, BackSide } from 'react-flippy'
-import projectData from '../projectData'
+
 
 const headerlinks = [
   {
@@ -37,25 +36,6 @@ const headerlinks = [
   */
 ]
 
-function Card(props) {
-return (
-  <Flippy
-    flipOnHover={false} 
-    flipOnClick={true} 
-    flipDirection="horizontal"
-  >
-    <FrontSide>
-    <div className="card">
-    {props.front}
-    </div>
-    </FrontSide>
-    <BackSide>
-     <div className="card">
-      {props.back}
-     </div>
-    </BackSide>
-  </Flippy>
-)}
 
 export function Footer() {
     return (
@@ -96,14 +76,15 @@ export function GalleryItem( {pr} ) {
   }
     return (
         <React.Fragment>
-        <div className="gallery-item">
+        <div className="gallery-item opacity-out">
+        <div className={isOpen ? "gallery-background item-open" : "gallery-background item-closed" } ></div>
         <h4 className="gallery-title" >{pr.name}</h4>
         <div className="image-container" onClick ={() => setIsOpen(isOpen => !isOpen)}>
         <motion.div
         animate={isOpen ? "open" : "closed"}
         variants = {variants}
         >
-        <img className="gallery-image" src= {pr.pic}/>
+        <img className="gallery-image" alt="" src= {pr.pic}/>
         </motion.div>
         <motion.div style=
         {{position: "absolute",
@@ -128,6 +109,7 @@ export function GalleryItem( {pr} ) {
         </motion.div>
         </div>
         </div>
+        
         </React.Fragment>
     )
 }
@@ -135,32 +117,6 @@ export function GalleryItem( {pr} ) {
 <Card front={<img src={pr.pic} alt={pr.name}></img>} back={<h2>{pr.description}</h2>}></Card>
 </div>
 */
-function ProjectDisplay (props) {
-  const variants = {
-    open: { opacity: 1,fontSize: '16px', scale: 1.2},
-    closed: { opacity: 0, width: '0px', height: '0px', fontSize: '0px'},
-  }
-  return (
-    <motion.div
-    onClick={props.onClick}
-    style={{margin: 'auto', opacity: 0, width: '0px', height: '0px', fontSize: '0px'}}
-    animate= {props.isOpen ? "open" : "closed"}
-    variants = {variants}
-    >
-    <motion.div animate= {props.isOpen ? "open" : "closed"}
-    variants = {variants}><p>{props.description}</p></motion.div>
-    </motion.div>
-  )
-}
-function CategoryGallery ( {pr } ) {
-  
-  return(
-
-    <div>{projectData.map(project => { if(project.category === pr.category) {
-      return (<GalleryItem key={project.id} pr={project}></GalleryItem>)
-  } else{return}})}</div>
-  )
-}
 export function CvItem (props) {
   return (
     <React.Fragment>
@@ -219,9 +175,6 @@ export function CvItem (props) {
         </AnimateSharedLayout>
         </motion.div>
     )
-}
-function setColor (newColor){
-  document.documentElement.style.setProperty('--accent-color', newColor);
 }
 function Item({ link, isSelected, onClick }) {
 

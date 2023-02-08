@@ -4,7 +4,7 @@ import './styles/styles.css';
 import Projects from './pages/projects'
 import Home from './pages/home'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import {Header, Footer, ModeSwitch} from './components/layout'
+import {Header, Footer} from './components/layout'
 
 function App() {
   const [theme, setTheme] = useState('dark')
@@ -12,11 +12,13 @@ function App() {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
   }
-  const [language, setLanguage] = useState('english')
+  const language= 'english'
+  /*
   const switchLanguage = () => {
     const newLang= language === 'finnish' ? 'english' : 'finnish';
     setLanguage(newLang);
   }
+  */ 
   
   return (
     <div className="App" data-theme={theme}>
