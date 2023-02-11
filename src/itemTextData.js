@@ -15,7 +15,7 @@ const itemTranslations = {
       },
       {
         'icon':"fas fa-calculator",
-        'job':`Accounting Assistant - Monelle Oy - 2018, 2020-2021, 2022`,
+        'job':`Accounting Assistant - Part-time - Monelle Oy - 2018, 2020-2021, 2022`,
       'description': `Duties include handling payments, billing and mail as well as data entry.`,
       'duties':''  
       },
@@ -23,12 +23,12 @@ const itemTranslations = {
         'icon':"fas fa-hammer",
       'job': `Construction worker at Elementit-E Oy - 2017 `,
       'description': `I was tasked with assembling flooring and insulation for wooden prefabs`,
-      'duties':''
+      'duties':'5 mos'
       },
       {
         'icon':"far fa-address-card",
-        'job': `Miscellaneous part-time jobs - 2014 - 2017`,
-      'description': `I started working early on in my life mostly during summers, ranging from customer service jobs to outdoors maintenance work`,
+        'job': `Other part-time experience - 2014 - 2016`,
+      'description': `Summer jobs, ranging from customer service jobs to outdoors maintenance work`,
       'duties':''
       }
       ],
@@ -36,13 +36,13 @@ const itemTranslations = {
       {
         'icon':"fas fa-desktop",
         'job': "LUT University - 2022 - Current", 
-        'description':"Began studying Computer Science with Electrical Engineering on the side.",
+        'description':"Major in Computer Science with Minor in Electrical Engineering",
         'duties' : ""
       },
       {
         'icon':"fas fa-chalkboard-teacher",
         'job': "JAMK University of Applied Sciences 2018 - 2022", 
-        'description':"Finished studied and graduated as Bachelor of Business Administration",
+        'description':"Bachelor of Business Administration, Business IT",
         'duties' : ""
       },
       {

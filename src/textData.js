@@ -10,7 +10,7 @@ const translations ={
                 
     `,
     'AboutParagraph2': `
-    I am an aspiring web developer with excellent customer service skills, an analytical mind and an unquenchable thirst for knowledge.
+    I am an aspiring web developer with excellent problem solving skills, an analytical mind and an unquenchable thirst for knowledge.
     `,
     'AboutParagraph3': `
     I pride myself in being capable of taking feedback, 
@@ -24,13 +24,13 @@ const translations ={
     Technologies I know
      `,
     'Technologies2': `
-    C# - Unity - HTML - CSS - JS - React - GIT 
+    C# - Unity - HTML - CSS - JavaSCript - GIT 
      `,
     'Stuff': `
     Stuff I am interested in
      `,
     'Stuff2': `
-     C - Java - C++ - Docker and more! 
+     C - Java - TypeScript - React - Docker and more! 
       `,
     'Work': `
       Work Experience

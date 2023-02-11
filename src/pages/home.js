@@ -16,7 +16,6 @@ function Home(props) {
     return (
       <div style={{overflow: 'hidden', backgroundColor:"var(--main-bg-color)"}}>
         <div ref={componentContainer} className="component-container">
-          <div className="center-background"></div>
           <div className="center main">
           <div className="center fade-in">
                  <div className="chapter">
