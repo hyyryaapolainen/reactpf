@@ -24,13 +24,13 @@ const translations ={
     Technologies I know
      `,
     'Technologies2': `
-    C# - Unity - HTML - CSS - JavaSCript - GIT 
+    C# - Unity - Git - JavaScript - HTML + CSS
      `,
     'Stuff': `
     Stuff I am interested in
      `,
     'Stuff2': `
-     C - Java - TypeScript - React - Docker and more! 
+     C - TypeScript - React - Docker and more! 
       `,
     'Work': `
       Work Experience
