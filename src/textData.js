@@ -6,7 +6,7 @@ const translations ={
      After completing my studies at JAMK, 
      I decided to broaden my expertise and 
      started studying Computer Science at LUT 
-     University.
+     University. I am currently a 2nd year student at LUT.
                 
     `,
     'AboutParagraph2': `
@@ -24,19 +24,18 @@ const translations ={
     Technologies I know
      `,
     'Technologies2': `
-    C# - Unity - Git - JavaScript - HTML + CSS
+    C# - Unity - Git - React - Docker - Python - Robot Framework
      `,
     'Stuff': `
     Stuff I am interested in
      `,
     'Stuff2': `
-     C - TypeScript - React - Docker and more! 
+     C - TypeScript - Game Dev - Music
       `,
     'Work': `
       Work Experience
        `,
     'Quote_text': `
-    "Jack of all trades, master of maybe a few"
   `,        
   },
   'finnish':{

@@ -2,6 +2,18 @@ const itemTranslations = {
   'english':{
     'work':[    
       {
+        'icon':"fas fa-robot",
+        'job': `Veikkaus - 2023 -> Current`,
+        'description': `QA specialist, working with testing automation`,
+        'duties' :'Scripting, tooling, test automation'
+      },
+      {
+        'icon':"fas fa-calculator",
+        'job':`Accounting Assistant - Part-time - Monelle Oy - 2018, 2020-2021, 2022`,
+      'description': `Duties include handling payments, billing and mail as well as data entry.`,
+      'duties':''  
+      },
+      {
         'icon':"fas fa-flag",
         'job': `DataGroup Sata IT - 2021`,
         'description': `Internship as an ICT support and PowerApps Developer`,
@@ -12,12 +24,6 @@ const itemTranslations = {
         'job':`Presenter at Asuntomessut - Housing Fair Finland - Kouvola 2019 `,
       'description': `Housing Fair is an annual event for everyone interested in all things related to housing.`,
       'duties': `I worked as a presenter at one of the locations`
-      },
-      {
-        'icon':"fas fa-calculator",
-        'job':`Accounting Assistant - Part-time - Monelle Oy - 2018, 2020-2021, 2022`,
-      'description': `Duties include handling payments, billing and mail as well as data entry.`,
-      'duties':''  
       },
       {
         'icon':"fas fa-hammer",

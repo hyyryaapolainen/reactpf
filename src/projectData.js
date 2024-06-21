@@ -3,9 +3,30 @@ import harava from './images/Harava.gif'
 import defaultPic from './images/outdoor (41).JPG'
 import thesis from './images/Kuva1.png'
 import ruin from './images/RUIN.png'
+import webbasics from './images/webbasics.png'
 //1 games, 2 web, 3 pixel art
 
 const projectData = [
+  {
+    name: "WebBasics - 2023",
+   description: "A small project for LUT web programming course",
+    id: 70,
+    pic: webbasics,
+    picDim: [300, 500],
+    subtitle: "I created a music making editor in basic web programming languages",
+    link: "https://hyyryaapolainen.github.io/webBasics",
+    category: 1
+  },
+  {
+    name: "Lutemon - 2023",
+   description: "A small project for LUT Java programming course",
+    id: 50,
+    pic: defaultPic,
+    picDim: [300, 500],
+    subtitle: "I did a LUT group project in Android Studio for developing a Java based pokemon style battle simulator game.",
+    link: "",
+    category: 0
+  },
   {
     name: "Thesis - 2022",
    description: "My thesis was about researching procedural generation and methods used to produce procedural landscapes.",
